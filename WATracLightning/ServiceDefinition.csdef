@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="WATracLightning" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <WorkerRole name="WorkerRole1" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <Runtime executionContext="elevated" />
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="tcp" port="80" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+    <LocalResources>
+      <LocalStorage name="LocalStorage1" cleanOnRoleRecycle="false" sizeInMB="400" />
+    </LocalResources>
+  </WorkerRole>
+</ServiceDefinition>
