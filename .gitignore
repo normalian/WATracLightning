@@ -1,3 +1,6 @@
 
 /WorkerRole1/obj
 /WorkerRole1/bin
+*.suo
+*.suo
+/WorkerRole1/obj
