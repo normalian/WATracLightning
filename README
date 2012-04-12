@@ -1,0 +1,6 @@
+# Trac Lightning on Windows Azure のプロジェクト
+Windows Azure 上で Trac Lightning を動作させるためのプロジェクトです。現在、以下の機能が利用可能です。
+ * Trac のチケット管理システム
+ * SVN のバージョン管理システム（ http プロトコルのみ ）
+
+Jenkins は現在利用できません。今後対応する予定です。
