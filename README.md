@@ -13,7 +13,7 @@ Jenkins は現在利用できません。今後対応する予定です。
 ### vhd ファイルを ストレージサービス上に配置する
 http://www.atmarkit.co.jp/fwin2k/win2ktips/1267vdisk/vdisk.html の記事を参照して *.vhd ファイルを作成し、 https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/disk.vhd に配置します
 
-### TracLightning.exze をストレージサービス上に配置する
+### TracLightning.exe をストレージサービス上に配置する
 http://sourceforge.jp/projects/traclight/wiki/FrontPage から Trac Lightning の *.exe バイナリを取得し、ファイル名を変更して
 https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/TracLightning.exe
 に Trac Lightning のバイナリを配置します。
