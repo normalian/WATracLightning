@@ -57,9 +57,9 @@ namespace WorkerRole1
 
             // ローカルキャッシュの設定
             LocalResource localCache = RoleEnvironment.GetLocalResource("LocalStorage1");
-
-
-            // 【#1】Windows Azure ドライブのマウント
+            
+            //以下のパスについて、Windows Azure ドライブのマウントする
+            //http://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/disk.vhd
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer blobContainer = blobClient.GetContainerReference("trac");
             azureDrive = storageAccount.CreateCloudDrive(blobContainer.GetPageBlobReference("disk.vhd").Uri.ToString());
@@ -84,6 +84,7 @@ namespace WorkerRole1
             p.Start();
 
             string results = p.StandardError.ReadToEnd();
+            Trace.WriteLine(results, "Error");
 
             p.WaitForExit(60000);
             p.Close();
