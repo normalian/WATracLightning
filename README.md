@@ -8,27 +8,29 @@ Jenkins は現在利用できません。今後対応する予定です。
 
 
 ## 利用手順
-以下を対応する必要があります。
-* vhd ファイルを ストレージサービス上に配置
-http://www.atmarkit.co.jp/fwin2k/win2ktips/1267vdisk/vdisk.html の記事を参考に *.vhd ファイルを作成し、 https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/disk.vhd に配置する
+本プロジェクトを pull 等で取得した後、実際の利用には以下の対応を実施する必要があります。
 
-* TracLightning.exze をストレージサービス上に配置
-https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/TracLightning.exe に Trac Lightning のバイナリを配置
+### vhd ファイルを ストレージサービス上に配置する
+http://www.atmarkit.co.jp/fwin2k/win2ktips/1267vdisk/vdisk.html の記事を参照して *.vhd ファイルを作成し、 https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/disk.vhd に配置します
 
-* *.cmd ファイルの修正
-```setuptrac.cmd の修正（ download.vbs スクリプトの引数URLに Trac Lightning を配置 ）
+### TracLightning.exze をストレージサービス上に配置する
+http://sourceforge.jp/projects/traclight/wiki/FrontPage から Trac Lightning の *.exe バイナリを取得し、ファイル名を変更して
+https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/TracLightning.exe
+に Trac Lightning のバイナリを配置します。
+
+###  *.cmd ファイルを修正する
+Wroker ロールプロジェクト内の setuptrac.cmd スクリプトを修正（ download.vbs スクリプトの引数URLに Trac Lightning を配置 ）
+```
 @echo off
-
-@rem Trac Lightning がインストールされていない場合はインストールし、再起動される
+@rem Trac Lightning がインストールされていない場合は同ソフトウェアをインストールし、OSを再起動する
 if exist Z:\TracLight\start.bat goto runtrac
 "%~dp0Assets\download.vbs" https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/TracLightning.exe
 "%~dp0TracLightning.exe" /VERYSILENT /LOG="log.txt" /DIR="Z:\TracLight"
 goto end
 ```
 
-* *.cscfg ファイルの修正
-自身のストレージサービスの情報を追記
-
+### *.cscfg ファイルを修正する
+自身のストレージサービスの情報を追記する必要があります。Windows Azure ドライブの保存先なので、設定は必須です。
 
 ## 注意点
 * Windows Azure ドライブを利用しているため、一インスタンスにのみ対応しています
