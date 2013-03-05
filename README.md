@@ -10,7 +10,7 @@ Jenkins は現在利用できません。今後対応する予定です。
 ## 利用手順
 本プロジェクトを pull 等で取得した後、実際の利用には以下の対応を実施する必要があります。
 
-### vhd ファイルを ストレージサービス上に配置する
+### 空の vhd ファイルを ストレージサービス上に配置する
 http://www.atmarkit.co.jp/fwin2k/win2ktips/1267vdisk/vdisk.html の記事を参照して *.vhd ファイルを作成し、 https://[YOUR_STORAGE_ACCOUNT_NAME].blob.core.windows.net/trac/disk.vhd に配置します
 
 ### TracLightning.exe をストレージサービス上に配置する
@@ -30,7 +30,7 @@ goto end
 ```
 
 ### *.cscfg ファイルを修正する
-自身のストレージサービスの情報を追記する必要があります。Windows Azure ドライブの保存先なので、設定は必須です。
+自身のストレージサービスの情報を追記する必要があります。Trac Lightning ファイルを保存する Windows Azure ドライブなので、設定は必須です。
 
 ## 注意点
 * Windows Azure ドライブを利用しているため、一インスタンスにのみ対応しています
